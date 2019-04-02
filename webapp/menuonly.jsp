@@ -3,7 +3,7 @@
 	<li>
 		<a href="#" class="menulink">Recursion Menu</a>
 		<ul>
-        	<li><a href="recursion.jsp">Recursion</a></li>			
+        	<li><a href="recursion.jsp" class="menulink">Recursion</a></li>			
 		</ul>
 	</li>
 	<li>

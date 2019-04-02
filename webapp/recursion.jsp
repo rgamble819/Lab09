@@ -7,14 +7,14 @@
 <body style="BACKGROUND: url(images/bcgreeen1.GIF) repeat-x" height=938>
 <%!
 
-    /**
+    /*
      * Lab 08: Recursion Suite
      * 
      * This lab tests your ability to implement recursion for several functions.
      * 
      * @authors: Stephen, Mukhtar, MoSho
-     * @editer: YOUR_NAME_HERE
-     * @version DATE_HERE
+     * @editer: Ryan Gamble
+     * @version 03/28/2019
      */
 
     /** **********************************************************************
@@ -34,7 +34,10 @@
          * This lets our recursion know when to stop.
          */
         //TODO
-
+        if(value == 1) 
+        {
+            return 1;
+        }
 
         /*
          * Here is the recursive statement. The function calls itself when the 
@@ -45,6 +48,7 @@
          * By doing this, we break up the equation n! into n! = n * (n-1)!.
          */
         //TODO
+        return value * (factorial(value - 1));
 
     }
 
@@ -66,7 +70,12 @@
      */
     public int fibonacci(int n)
     {
-        //TODO
+        if(n == 1 || n ==2) 
+        {
+            return 1;
+        }
+        
+        return fibonacci(n - 1) + fibonacci(n - 2); 
     }
 
     
@@ -99,22 +108,23 @@
     
         public Tree(int value)
         {
-    	    //TODO
+            this.value = value;
+            children = new ArrayList<Tree>();
         }
     
         public int getValue()
         {
-    	    //TODO
+            return value;
         }
     
         public ArrayList<Tree> getChildren()
         {
-    	    //TODO
+            return children;
         }
     
         public void add(Tree child)
         {
-    	    //TODO
+            children.add(child);
         }
     }
     
@@ -144,14 +154,14 @@
      *        the subtree has no more children.
      * @return The size of the subtree - the number of nodes.
      */
-    public int nnaryTreeSize(int branchingFactor, int height)
+    public static int nnaryTreeSize(int branchingFactor, int height)
     {
         if (height == 1) 
         {
-    	    //TODO
+            return 1;
         }
         
-    	//TODO
+        return ((height) * branchingFactor) + nnaryTreeSize(branchingFactor, height - 1);
     }
 
     /** **********************************************************************
@@ -164,7 +174,17 @@
      */
     public int treeSum(Tree tree)
     {
-    	//TODO
+       if(tree.children.size() == 0)
+       {
+           return tree.value;
+       }
+
+       int sum = 0;
+       for(Tree t : tree.getChildren())
+       {
+           sum += treeSum(t);
+       }
+       return sum + tree.value;
     }
     
     /** **********************************************************************
@@ -247,9 +267,10 @@
          */
         else 
         {
-        	return area + circledSquared(!square, length * Math.sqrt(2), depth - 1);
-    	}
+            return area + circledSquared(!square, length * Math.sqrt(2), depth - 1);
+        }
     }
+
 %>
 <center>
 <font size=5>
