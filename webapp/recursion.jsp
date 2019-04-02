@@ -161,7 +161,7 @@
             return 1;
         }
         
-        return ((height) * branchingFactor) + nnaryTreeSize(branchingFactor, height - 1);
+        return (int)Math.pow(branchingFactor, height - 1) + nnaryTreeSize(branchingFactor, height - 1);
     }
 
     /** **********************************************************************
